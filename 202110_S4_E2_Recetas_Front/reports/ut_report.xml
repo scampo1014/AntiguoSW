@@ -1,0 +1,259 @@
+<testExecutions version="1">
+  <file path="src/app/video/video.service.spec.ts">
+    <testCase name="Service: Video getPost() should return 10 records" duration="432">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/videos", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/video.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/video/video.service.spec.ts:56:26)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/video
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/video/video.service.spec.ts:34:14)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+    <testCase name="Service: Video should ..." duration="12"/>
+  </file>
+  <file path="src/app/usuario/usuario-listar/usuario-listar.component.spec.ts">
+    <testCase name="UsuarioListarComponent should create" duration="145">
+      <failure message="Error">TypeError: faker__WEBPACK_IMPORTED_MODULE_1___default.a.random.sentence is not a function
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/usuario/usuario-listar/usuario-listar.component.spec.ts:30:22)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/receta/receta.service.spec.ts">
+    <testCase name="Service: Receta getPost() should return 10 records" duration="22">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/recetas", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/usuario/recetas.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/receta/receta.service.spec.ts:58:25)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/usuario/recetas
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/receta/receta.service.spec.ts:32:13)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/calificacion/calificacion-listar/calificacion-listar.component.spec.ts">
+    <testCase name="CalificacionListarComponent should create" duration="57"/>
+  </file>
+  <file path="src/app/video/video-listar/video-listar.component.spec.ts">
+    <testCase name="VideoListarComponent Should have an figcaption element " duration="55"/>
+    <testCase name="VideoListarComponent should create" duration="15"/>
+  </file>
+  <file path="src/app/calificacion/calificacion.service.spec.ts">
+    <testCase name="Service: Calificacion getPost() should return 10 records" duration="14">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/calificacions", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/calificaciones.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/calificacion/calificacion.service.spec.ts:55:25)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/calificaciones
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/calificacion/calificacion.service.spec.ts:32:13)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/usuario/usuario.service.spec.ts">
+    <testCase name="Service: Usuario getPost() should return 10 records" duration="14"/>
+  </file>
+  <file path="src/app/comentario/comentario-listar/comentario-listar.component.spec.ts">
+    <testCase name="ComentarioListarComponent Should have an figcaption element " duration="40"/>
+    <testCase name="ComentarioListarComponent should create" duration="18"/>
+  </file>
+  <file path="src/app/receta/receta-listar/receta-listar.component.spec.ts">
+    <testCase name="RecetaListarComponent should create" duration="65"/>
+  </file>
+  <file path="src/app/comentario/comentario.service.spec.ts">
+    <testCase name="Service: Comentario should ..." duration="9"/>
+    <testCase name="Service: Comentario getPost() should return 10 records" duration="13">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/comentarios", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/comentario.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/comentario/comentario.service.spec.ts:57:26)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/comentario
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/comentario/comentario.service.spec.ts:34:14)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/utensilio/utensilio.service.spec.ts">
+    <testCase name="Service: Utensilio getPost() should return 10 records" duration="17">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/utensilios", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/recetas/100/utensilios.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/utensilio/utensilio.service.spec.ts:51:26)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/recetas/100/utensilios
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/utensilio/utensilio.service.spec.ts:30:14)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/foto/foto-listar/foto-listar.component.spec.ts">
+    <testCase name="FotoListarComponent Should have an figcaption element " duration="37"/>
+    <testCase name="FotoListarComponent should create" duration="15"/>
+  </file>
+  <file path="src/app/foto/foto.service.spec.ts">
+    <testCase name="Service: Foto getPost() should return 10 records" duration="15">
+      <failure message="Error">Error: Expected one matching request for criteria "Match URL: http://localhost:8080/s4_recetas-api/api/books", found none. Requests received are: GET http://localhost:8080/s4_recetas-api/api/fotos.
+    at HttpClientTestingBackend.expectOne (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:297:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/foto/foto.service.spec.ts:54:26)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+
+Error: Expected no open requests, found 1: GET http://localhost:8080/s4_recetas-api/api/fotos
+    at HttpClientTestingBackend.verify (http://localhost:9876/_karma_webpack_/node_modules/@angular/common/__ivy_ngcc__/fesm2015/http/testing.js:330:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/foto/foto.service.spec.ts:33:14)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+    <testCase name="Service: Foto should ..." duration="5"/>
+  </file>
+  <file path="src/app/ingrediente/ingrediente-listar/ingrediente-listar.component.spec.ts">
+    <testCase name="IngredienteListarComponent should create" duration="30">
+      <failure message="Error">TypeError: faker__WEBPACK_IMPORTED_MODULE_1___default.a.random.sentence is not a function
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/ingrediente/ingrediente-listar/ingrediente-listar.component.spec.ts:30:22)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/utensilio/utensilio-listar/utensilio-listar.component.spec.ts">
+    <testCase name="UtensilioListarComponent should create" duration="16">
+      <failure message="Error">TypeError: faker__WEBPACK_IMPORTED_MODULE_1___default.a.random.sentence is not a function
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/utensilio/utensilio-listar/utensilio-listar.component.spec.ts:30:22)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/ingrediente/ingrediente.service.spec.ts">
+    <testCase name="Service: Ingrediente getPost() should return 10 records" duration="10">
+      <failure message="Error">TypeError: faker__WEBPACK_IMPORTED_MODULE_3___default.a.lorem.number is not a function
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/ingrediente/ingrediente.service.spec.ts:43:21)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should have as title 'front'" duration="13"/>
+    <testCase name="AppComponent should render title" duration="16">
+      <failure message="Error">TypeError: Cannot read property 'textContent' of null
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/app.component.spec.ts:33:51)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:364:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/zone-testing.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:292:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:363:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:123:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:545:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-testing.js:560:1)
+    at &lt;Jasmine&gt;
+</failure>
+    </testCase>
+    <testCase name="AppComponent should create the app" duration="14"/>
+  </file>
+</testExecutions>

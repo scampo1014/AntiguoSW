@@ -1,0 +1,1068 @@
+{
+	"info": {
+		"_postman_id": "370ebd5d-3686-442b-9295-5100fd25c72b",
+		"name": "Utensilio Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear un nuevo usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_login_u\",data.login);\r",
+							"postman.setGlobalVariable(\"new_correo_u\",data.correo);\r",
+							"postman.setGlobalVariable(\"new_id_u\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrith\",\r\n\"login\": \"login\",\r\n\"correo\":\"correo\",\r\n\"contrasenia\":\"contrasenia\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_r\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"recetaIngrediente\",\r\n    \"descripcion\": \"Deliciosa receta\",\r\n    \"cantIngredientes\": 3,\r\n    \"calorias\": 8,\r\n    \"tiempoPrep\": \"10 minutos\",\r\n    \"dificultad\": \"muy dificil\",\r\n    \"validada\": false,\r\n    \"popular\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo utensilio a una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_ut\",data.id);\r",
+							"postman.setGlobalVariable(\"new_nombre_ut\",data.nombre);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Utensilio\",\r\n\"precio\": 1000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo utensilio a una receta 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_ut2\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Utensilio2\",\r\n\"precio\": 1000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo utensilio con precio negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio no puede ser negativo\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"UtensilioX\",\r\n\"precio\": -1000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo utensilio con precio alto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio del utensilio es muy alto\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"UtensilioX\",\r\n\"precio\": 1000000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo utensilio con nombre repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"Una receta no puede tener dos utensilios con el mismo nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"{{new_nombre_ut}}\",\r\n\"precio\": 100000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo utensilio a receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede asociar un utensilio a una receta que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"IngredienteX\",\r\n\"precio\": 100000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Utensilio con nuevo nombre\",\n    \"precio\": 1000,\n    \"descripcion\":\"descripcion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut2}}"
+					]
+				},
+				"description": "**Release: Paso-2**\r\n\r\nActualiza una editorial existente. El recurso solo tiene de atributo \"name\" que debe ser único. se envía el Id de la URL de la petición.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio con precio negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio no puede ser negativo\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"UtensilioX\",\r\n\"precio\": -1000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio con precio alto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio del utensilio es muy alto\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"UtensilioX\",\r\n\"precio\": 1000000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio con nombre repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"Una receta no puede tener dos utensilios con el mismo nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"{{new_nombre_ut}}\",\r\n\"precio\": 1000000,\r\n\"descripcion\":\"descripcion\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio que no existe en una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede editar un utensilio que no existe.\"] = responseCode.code === 404;",
+							"let id = pm.variables.get(\"new_id_r\");",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/utensilios/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Utensilio con nuevo nombre\",\n    \"precio\": 1000,\n    \"descripcion\":\"descripcion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"0"
+					]
+				},
+				"description": "**Release: Paso-2**\r\nActualiza una editorial que no existe. \r\n\r\nPara la prueba se verifica que se genera el error y el mensaje \"El recurso /editorials/0 no existe.\".\r\n\r\n**Código HTTP esperado: 404**"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un utensilio en una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede editar un utensilio sobre una receta que no existe.\"] = responseCode.code === 404;",
+							"let id = pm.variables.get(\"new_id_u\");",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Utensilio con nuevo nombre\",\n    \"precio\": 1000,\n    \"descripcion\":\"descripcion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				},
+				"description": "**Release: Paso-2**\r\nActualiza una editorial que no existe. \r\n\r\nPara la prueba se verifica que se genera el error y el mensaje \"El recurso /editorials/0 no existe.\".\r\n\r\n**Código HTTP esperado: 404**"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los utensilios de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"No genera error en el Get\"] = responseCode.code === 200;\r",
+							"tests[\"No trae una lista vacía\"] = data.length>1;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un utensilio de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(responseBody);\r",
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"No genera error en el Get\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un utensilio que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No consulta con id que no existe\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_r\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/utensilios/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un utensilio de una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No consulta con receta que no existe\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un utensilio que no existe en una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede borrar un utensilio que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_r\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/utensilios/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"0"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un utensilio a una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede borrar un utensilio sobre una receta que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un utensilio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un utensilio 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/utensilios/{{new_id_ut2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"utensilios",
+						"{{new_id_ut2}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		}
+	]
+}

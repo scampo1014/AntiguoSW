@@ -1,0 +1,1068 @@
+{
+	"info": {
+		"_postman_id": "4e66d7ed-0242-4dfc-8490-67b141e39712",
+		"name": "Ingrediente Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear un nuevo usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_login_u\",data.login);\r",
+							"postman.setGlobalVariable(\"new_correo_u\",data.correo);\r",
+							"postman.setGlobalVariable(\"new_id_u\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrith\",\r\n\"login\": \"login\",\r\n\"correo\":\"correo\",\r\n\"contrasenia\":\"contrasenia\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_r\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"recetaIngrediente\",\r\n    \"descripcion\": \"Deliciosa receta\",\r\n    \"cantIngredientes\": 3,\r\n    \"calorias\": 8,\r\n    \"tiempoPrep\": \"10 minutos\",\r\n    \"dificultad\": \"muy dificil\",\r\n    \"validada\": false,\r\n    \"popular\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo ingrediente a una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_i\",data.id);\r",
+							"postman.setGlobalVariable(\"new_nombre_i\",data.nombre);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrediente\",\r\n\"precio\": 1000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo ingrediente a una receta 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"new_id_i2\",data.id);\r",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrediente2\",\r\n\"precio\": 1000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo ingrediente con precio negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio no puede ser negativo\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"IngredienteX\",\r\n\"precio\": -1000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo ingrediente con precio alto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio del ingrediente es muy alto\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"IngredienteX\",\r\n\"precio\": 100000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un nuevo ingrediente con nombre repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"Una receta no puede tener dos ingredientes con el mismo nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"{{new_nombre_i}}\",\r\n\"precio\": 10000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crearle un nuevo ingrediente a receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede asociar un ingrediente a una receta que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"IngredienteX\",\r\n\"precio\": 100000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Ingrediente con nuevo nombre\",\n    \"precio\": 1000,\n    \"cantidad\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i2}}"
+					]
+				},
+				"description": "**Release: Paso-2**\r\n\r\nActualiza una editorial existente. El recurso solo tiene de atributo \"name\" que debe ser único. se envía el Id de la URL de la petición.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente con precio negativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio no puede ser negativo\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrediente\",\r\n\"precio\": -1000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente con precio alto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"El precio del ingrediente es muy alto\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"Ingrediente\",\r\n\"precio\": 100000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente con nombre repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Identifica error en el Post\"] = responseCode.code === 412;\r",
+							"tests[\"Identifica error en el Post\"] = responseBody.has(\"Una receta no puede tener dos ingredientes con el mismo nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"{{new_nombre_i}}\",\r\n\"precio\": 10000,\r\n\"cantidad\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente que no existe en una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede editar un ingrediente que no existe.\"] = responseCode.code === 404;",
+							"let id = pm.variables.get(\"new_id_r\");",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/ingredientes/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"nombre\":\"Ingrediente con nuevo nombre\",\n    \"precio\": 1000,\n    \"cantidad\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"0"
+					]
+				},
+				"description": "**Release: Paso-2**\r\nActualiza una editorial que no existe. \r\n\r\nPara la prueba se verifica que se genera el error y el mensaje \"El recurso /editorials/0 no existe.\".\r\n\r\n**Código HTTP esperado: 404**"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar un ingrediente en una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede editar un ingrediente sobre una receta que no existe.\"] = responseCode.code === 404;",
+							"let id = pm.variables.get(\"new_id_u\");",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"nombre\":\"Ingrediente con nuevo nombre\",\n    \"precio\": 1000,\n    \"cantidad\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				},
+				"description": "**Release: Paso-2**\r\nActualiza una editorial que no existe. \r\n\r\nPara la prueba se verifica que se genera el error y el mensaje \"El recurso /editorials/0 no existe.\".\r\n\r\n**Código HTTP esperado: 404**"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los ingredientes de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"No genera error en el Get All\"] = responseCode.code === 200;\r",
+							"tests[\"No trae una lista vacía\"] = data.length>1;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un ingrediente de una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(responseBody);\r",
+							"var data = JSON.parse(responseBody);\r",
+							"tests[\"No genera error en el Get\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un ingrediente que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No consulta con id que no existe\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_r\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/ingredientes/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un ingrediente de una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No consulta con receta que no existe\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un ingrediente que no existe en una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede borrar un ingrediente que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_r\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /recetas/\"+id+\"/ingredientes/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"0"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un ingrediente a una receta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No se puede borrar un ingrediente sobre una receta que no existe.\"] = responseCode.code === 404;\r",
+							"let id = pm.variables.get(\"new_id_u\");\r",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /usuarios/\"+id+\"/recetas/0 no existe\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/0/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"0",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un ingrediente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un ingrediente 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}/ingredientes/{{new_id_i2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}",
+						"ingredientes",
+						"{{new_id_i2}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una receta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}/recetas/{{new_id_r}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}",
+						"recetas",
+						"{{new_id_r}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s4_recetas-api/api/usuarios/{{new_id_u}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s4_recetas-api",
+						"api",
+						"usuarios",
+						"{{new_id_u}}"
+					]
+				},
+				"description": "**Release: Paso-1**\n\nBorra una editorial, se envía el id de la editorial creada en la primera petición\n\n**Código HTTP esperado: 204**"
+			},
+			"response": []
+		}
+	]
+}

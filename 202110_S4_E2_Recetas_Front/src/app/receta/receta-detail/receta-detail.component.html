@@ -1,0 +1,87 @@
+<div class="panel panel-default">
+  <div>
+    <div class="border margin p-3">
+      <p class="h3">{{ recetaDetail?.nombre }}  ({{ getPromedioCalificaciones(recetaDetail?.calificaciones) }}) </p>
+      <h3 class="caption" routerLink="/usuarios/{{ recetaDetail?.usuario.id}}" style="cursor:pointer;font-style: italic;">
+        By: {{ recetaDetail?.usuario.nombre }}
+      </h3>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="thumb">
+                <img width="300" class="img-fluid p-2" src="{{recetaDetail?.fotos[0].direccion}}" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <dl>
+            <hr />
+            <dt>Descripción</dt>
+            <dd class="caption">{{recetaDetail?.descripcion}}</dd>
+            <hr />
+            <dt>Tiempo de preparación</dt>
+            <dd class="caption">{{recetaDetail?.tiempoPrep}}</dd>
+            <hr />
+            <dt>Cantidad de calorías</dt>
+            <dd class="caption">{{recetaDetail?.calorias}}</dd>
+            <hr />
+            <dt>Dificultad</dt>
+            <dd class="caption">{{recetaDetail?.dificultad}}</dd>
+            <hr />
+            <dt> Fotos</dt>
+            <dd class="text-center" *ngFor="let f of recetaDetail?.fotos"><img src={{f.direccion}} height="200"></dd>
+            <dd *ngIf="recetaDetail?.fotos?.length == 0"> No se le han añadido fotos a esta receta </dd>
+            <hr />
+            <dt> Videos</dt>
+            <dd class="text-center" *ngFor="let v of recetaDetail?.videos">
+              <iframe class="embed-responsive-item" width="420" height="315" [src]="getUrl(v.direccion)"
+                allowfullscreen>
+              </iframe>
+            </dd>
+            <dd *ngIf="recetaDetail?.videos?.length == 0"> No se le han añadido videos a esta receta </dd>
+            <hr />
+            <dt> Ingredientes</dt>
+            <dd *ngFor="let i of recetaDetail?.ingredientes">{{i.nombre}}: {{i.cantidad}}. Tiene un precio aproximado de {{i.precio}} pesos</dd>
+            <dd *ngIf="recetaDetail?.ingredientes?.length == 0"> La receta no tiene ingredientes aún </dd>
+            <hr />
+            <dt> Utensilios</dt>
+            <dd *ngFor="let u of recetaDetail?.utensilios">{{u.nombre}}: {{u.descripcion}}. Tiene un precio aproximado de {{u.precio}} pesos</dd>
+            <dd *ngIf="recetaDetail?.utensilios?.length == 0"> La receta no tiene utensilios aún </dd>
+            <hr />
+            <dt> Comentarios</dt>
+            <div *ngIf="recetaDetail?.comentarios?.length > 0">
+              <app-receta-comentarios [recetaComentarios]="recetaDetail.comentarios"></app-receta-comentarios>
+            </div>
+            <dd *ngIf="recetaDetail?.comentarios?.length == 0"> La receta no ha sido comentada </dd>
+            <hr />
+            <dt> Calificacion promedio</dt>
+            <dd *ngIf="recetaDetail?.calificaciones?.length > 0">
+              {{ getPromedioCalificaciones(recetaDetail?.calificaciones) }} </dd>
+            <dd *ngIf="recetaDetail?.calificaciones?.length == 0"> La receta no ha sido calificada </dd>
+            <hr />
+          </dl>
+          <br />
+        </div>
+      </div>
+
+      <div class="px-5 py-2">
+        <app-calificacion-receta-create [receta]="recetaDetail">
+        </app-calificacion-receta-create>
+      </div>
+
+      <div class="px-5 py-2">
+        <app-receta-comentario-create [receta]="recetaDetail"></app-receta-comentario-create>
+      </div>
+
+      <div class="px-5 py-2"><app-ingrediente-receta-create [receta]="recetaDetail" >
+      </app-ingrediente-receta-create></div>
+
+      <div class="px-5 py-2"><app-utensilio-receta-create [receta]="recetaDetail" >
+      </app-utensilio-receta-create></div>
+
+      <div class="px-5 py-2"><app-receta-foto-create [receta]="recetaDetail" >
+      </app-receta-foto-create></div>
+    </div>
+  </div>

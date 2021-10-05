@@ -1,0 +1,30 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseFoto">
+    Agregar Foto
+  </button>
+</p>
+<div id="collapseFoto" [ngbCollapse]="isCollapsed">
+  <h3>Crear Foto</h3>
+  <form [formGroup]="fotoForm"
+    (ngSubmit)="!fotoForm.invalid && createFoto(fotoForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="foto"> Foto</label>
+      <input id="foto" type="url" class="form-control" formControlName="foto" placeholder="Ingrese url de la foto" />
+    </div>
+     <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+     fotoForm.get('foto').hasError('required') &&
+     fotoForm.get('foto').touched
+      ">
+      Foto requerida
+    </div>
+
+    <div class="row form-inline justify-content-center align-self-center p-2">
+      <button type="submit" class="btn btn-primary " [disabled]="!fotoForm.valid">Create</button>
+      <div class="divider p-2"></div>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancel</button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.bg-beige {
+  background-color: #EDC7B7;
+}
+
+.bg-beige-light {
+  background-color: #EEE2DC;
+}
+
+.bg-red {
+  background-color: #AC3B61;
+}
+
+.bg-blue {
+  background-color: #123C69;
+}
+
+.bg-grey {
+  background-color: #bab2b5;
+}
+
+.text-blue {
+  color: #123C69;
+}
+
+.text-red {
+  color: #AC3B61;
+}

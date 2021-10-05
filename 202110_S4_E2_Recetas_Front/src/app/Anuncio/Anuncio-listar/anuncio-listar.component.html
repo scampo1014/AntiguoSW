@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <h1>Anuncios</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombre</th>
+          <th class="h4">Costo</th>
+          <th class="h4">Contenido</th>
+          <th class="h4">Medio De Pago</th>
+          <th class="h4">Tiempo Disponible</th>
+          <th class="h4">Proveedor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let u of Anuncios" (click)="onSelected(u)">
+          <td>
+            <dd>{{u.nombre}}</dd>
+          </td>
+          <td>
+            <dd>{{u.costo}}</dd>
+          </td>
+          <td>
+            <dd>{{u.contenido}}</dd>
+          </td>
+          <td>
+            <dd>{{u.medioDePago}}</dd>
+          </td>
+          <td>
+            <dd>{{u.tiempoDisponible}}</dd>
+          </td>
+          <td *ngIf="u.proveedor != undefined">
+            <dd>{{u.proveedor.nombre}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

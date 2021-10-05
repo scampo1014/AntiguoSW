@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h1>Fotos</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Id</th>
+          <th class="h4">Direccion</th>
+          <th class="h4">Formato</th>
+          <th class="h4">Tamanio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of fotos">
+          <td>
+            <dd>{{f.id}}</dd>
+          </td>
+          <td>
+            <dd>{{f.direccion}}</dd>
+          </td>
+          <td>
+            <dd>{{f.formato}}</dd>
+          </td>
+          <td>
+            <dd>{{f.tamanio}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

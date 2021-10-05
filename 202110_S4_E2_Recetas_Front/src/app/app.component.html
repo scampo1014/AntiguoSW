@@ -1,0 +1,149 @@
+<!-- Barra Menú -->
+<nav class="navbar navbar-expand-lg bg-beige">
+  <span class = "border"></span>
+  <a class="navbar-brand" routerLink="/recetas/listar">
+    <div class="form-inline">
+      <img
+        id="logo"
+        src="https://image.flaticon.com/icons/png/512/683/683488.png"
+        class="center-block"
+        width="100"
+        height="100"
+      />
+      <div class="col">
+        <div class="row-sm-4">
+          <h2 class="mainTitle text-red f1">Recetas</h2>
+        </div>
+        <div class="row-sm-3">
+          <h5 class="mainTitle text-blue f1">#1 Aplicación en Recetas</h5>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Barra de Navegación 2.0 -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle text-blue"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Recetas</a
+        >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/recetas/listar">Listar</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle text-blue"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Cocineros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/usuarios/listar">Listar</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle text-blue"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Registrar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/usuarios/create">Cocinero</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle text-blue"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Proveedores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/proveedores/listar">Listar</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<!-- Barra de Navegación Vieja
+<ul class="nav nav-tabs bg-beige-light">
+  <li class="nav-item">
+    <a id="recetasTag" class="nav-link text-blue" routerLink="/recetas/listar">Recetas</a>
+  </li>
+  <li class="nav-item">
+    <a id="usuariosTag" class="nav-link text-blue" routerLink="/usuarios/listar">Usuarios</a>
+  </li>
+  <li class="nav-item">
+    <a id="proveedoresTag" class="nav-link text-blue" routerLink="/proveedores/listar">Proveedores</a>
+  </li>
+  <li class="nav-item">
+      <a id="calificacionesTag" class="nav-link text-blue" routerLink="/calificaciones/listar">Calificaciones</a>
+  </li>
+  <li class="nav-item">
+      <a id="comentariosTag" class="nav-link text-blue" routerLink="/comentarios/listar">Comentarios</a>
+  </li>
+  <li class="nav-item">
+    <a id="fotosTag" class="nav-link text-blue" routerLink="/fotos/listar">Fotos</a>
+  </li>
+  <li class="nav-item">
+    <a id="videosTag" class="nav-link text-blue" routerLink="/videos/listar">Videos</a>
+  </li>
+</ul>
+-->
+<!-- Cuerpo Principal de la Aplicación-->
+<div class="container-fluid bg-beige-light  pb-5" id="principal">
+  <div class="row justify-content-center">
+    <div class="col-md-10 card rounded-lg m-4 pt-3">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer bg-grey fixed-bottom">
+  <div class="footer-copyright text-center py-2">
+    © Chefcitos 2021
+  </div>
+</footer>
+

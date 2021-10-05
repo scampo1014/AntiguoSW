@@ -1,0 +1,63 @@
+<h1 class="text-center p-4">Recetas</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-4" *ngFor="let r of recetas">
+      <figure class="figure" routerLink="/recetas/{{ r.id }}">
+        <img width="300" height="300" class="img-thumbnail img-fluid text-center" style = "cursor:pointer;" src="{{r.fotos[0].direccion}}" alt="{{ r?.nombre }} " />
+        <figcaption class="figure-caption text-center">
+          {{ r?.nombre }}
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <h1>Recetas</h1>
+  <div class="row p-5">
+
+    <div class= "col-4" *ngFor="let r of recetas " routerLink = "/recetas/{{r.id}}">
+      <div class="card m-4" style= "width: 15rem;">
+        <img class="card-img-top" src = {{r.fotos[0].direccion}}>
+        <div class="card-body">
+          <h5 class="card-title">{{r.nombre}}</h5>
+        </div>
+      </div>
+
+    </div>
+
+
+    Vista Vieja
+      <div class="col">
+      <table class="table">
+        <thead>
+         <tr>
+            <th class="h4">Nombre</th>
+            <th class="h4"> </th>
+            <th class="h4">Popular</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of recetas " routerLink = "/recetas/{{r.id}}">
+            <td style = "cursor:pointer;">
+              <dd>{{r.nombre}}</dd>
+            </td>
+            <td *ngIf="r.fotos != undefined">
+              <dd><img src={{r.fotos[0].direccion}} width="200" height="200"></dd>
+            </td>
+            <td>
+              <dd>{{r.popular}}</dd>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4 border">
+      <div *ngIf="selected">
+        <app-receta-detail [recetaDetail]="selectedReceta"></app-receta-detail>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->

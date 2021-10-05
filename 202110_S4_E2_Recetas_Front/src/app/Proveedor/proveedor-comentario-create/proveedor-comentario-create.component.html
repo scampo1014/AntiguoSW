@@ -1,0 +1,53 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseComentario">
+    Comentar
+  </button>
+</p>
+<div id="collapseComentario" [ngbCollapse]="isCollapsed">
+  <h3>Crear Comentario</h3>
+  <form [formGroup]="comentarioForm"
+    (ngSubmit)="!comentarioForm.invalid && createComentario(comentarioForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <input id="aprobado" type="checkbox" class="form-check-input" formControlName="aprobado" placeholder="El comentario está aprobado?" />
+      <label for="aprobado" class="form-check-label"> Aprobado </label>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    comentarioForm.get('aprobado').hasError('required') &&
+    comentarioForm.get('aprobado').touched
+      ">
+      Aprobado requerido
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="comentarioForm.get('aprobado').hasError('requiredTrue') && comentarioForm.get('puntos').touched">
+        El comentario tiene que estar aprobado por un administrador.
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <input id="positivo" type="checkbox" class="form-check-input" formControlName="positivo" placeholder="El comentario es positivo?" />
+      <label for="positivo" class="form-check-label"> Positivo </label>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    comentarioForm.get('positivo').hasError('required') &&
+    comentarioForm.get('positivo').touched
+      ">
+      Positivo requerido
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="comentario"> Comentario </label>
+      <input id="comentario" class="form-control" formControlName="comentario" placeholder="Ingrese su comentario" />
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    comentarioForm.get('comentario').hasError('required') &&
+    comentarioForm.get('comentario').touched
+      ">
+      El comentario no puede estar en blanco.
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!comentarioForm.valid">Crear</button>
+    <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancelar</button>
+
+  </form>
+</div>

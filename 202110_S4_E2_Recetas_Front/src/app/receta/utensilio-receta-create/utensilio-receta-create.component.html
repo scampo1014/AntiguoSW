@@ -1,0 +1,42 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseUtensilio">
+    Agregar utensilio
+  </button>
+</p>
+<div id="collapseUtensilio" [ngbCollapse]="isCollapsed">
+  <h3>Crear Utensilio</h3>
+  <form [formGroup]="utensilioForm"
+    (ngSubmit)="!utensilioForm.invalid && createUtensilio(utensilioForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre"> Nombre </label>
+      <input id="nombre" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre del utensilio" />
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    utensilioForm.get('nombre').hasError('required') &&
+    utensilioForm.get('nombre').touched
+      ">
+      Campo requerido
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="descripcion"> Descripcion </label>
+      <input id="descripcion" class="form-control" formControlName="descripcion" placeholder="Ingrese la descripcion" />
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    utensilioForm.get('descripcion').hasError('required') &&
+    utensilioForm.get('descripcion').touched
+      ">
+      Campo requerido
+    </div>
+
+    <div class="row form-inline justify-content-center align-self-center p-2">
+      <button type="submit" class="btn btn-primary " [disabled]="!utensilioForm.valid">Create</button>
+      <div class="divider p-2"></div>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancel</button>
+    </div>
+
+  </form>
+</div>
+

@@ -1,0 +1,25 @@
+<p>
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    Comentarios del Proveedor
+  </button>
+</p>
+<div id="collapseExample"  [ngbCollapse]="isCollapsed">
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let comentario of proveedorComentarios">
+        <td>
+          <span id="comentario-posneg"
+            ><b>{{positivoNegativo(comentario.positivo)}}</b></span
+          ><span>: </span
+          ><span id="comentario-description">{{ comentario.comentario }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseIngrediente">
+    Agregar Ingrediente
+  </button>
+</p>
+<div id="collapseIngrediente" [ngbCollapse]="isCollapsed">
+  <h3>Crear Ingrediente</h3>
+  <form [formGroup]="ingredienteForm"
+    (ngSubmit)="!ingredienteForm.invalid && createIngrediente(ingredienteForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre"> Nombre </label>
+      <input id="nombre" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre del ingrediente" />
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    ingredienteForm.get('nombre').hasError('required') &&
+    ingredienteForm.get('nombre').touched
+      ">
+      Campo requerido
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="cantidad">
+        Cantidad
+      </label>
+      <input novalidate id="cantidad" class="form-control" formControlName="cantidad" placeholder="Ingrese la cantidad">
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="ingredienteForm.get('cantidad').hasError('required') && ingredienteForm.get('cantidad').touched">
+        Campo requerido
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="ingredienteForm.get('cantidad').hasError('min')">
+        No se permiten cantidades menores a 1
+      </div>
+    </div>
+
+    <div class="row form-inline justify-content-center align-self-center p-2">
+      <button type="submit" class="btn btn-primary " [disabled]="!ingredienteForm.valid">Create</button>
+      <div class="divider p-2"></div>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancel</button>
+    </div>
+
+  </form>
+</div>
+

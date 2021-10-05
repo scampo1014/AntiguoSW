@@ -1,0 +1,39 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col">
+      <div class="card" >
+        <div class="card-body">
+          <h3 class="card-title">{{proveedorDetail?.nombre}}</h3>
+          <dl class="card-text">
+            <dt class="bold"> Login:</dt>
+            <dd>{{proveedorDetail?.login}}</dd>
+            <dt>Correo:</dt>
+            <dd class="caption">{{proveedorDetail?.correo}}</dd>
+            <hr>
+            <dt> Anuncios:</dt>
+
+            <dd *ngFor = "let r of proveedorDetail?.anuncios">{{r.nombre}}</dd>
+
+            <dt> Comentarios</dt>
+            <div *ngIf="proveedorDetail?.comentarios?.length > 0">
+              <app-proveedor-comentarios [proveedorComentarios]="proveedorDetail.comentarios"></app-proveedor-comentarios>
+            </div>
+            <dt> Calificaciones:</dt>
+            <dd *ngFor = "let ca of proveedorDetail?.calificaciones">{{ca.puntos}}</dd>
+
+          </dl>
+        </div>
+      </div>
+
+      <div class="px-5 py-2"><app-calificacion-proveedor-create [proveedor]="proveedorDetail" >
+      </app-calificacion-proveedor-create></div>
+    </div>
+  </div>
+
+  <div class = "px-5 py-2">
+    <app-proveedor-comentario-create [proveedor] = "proveedorDetail"></app-proveedor-comentario-create>
+  </div>
+
+</div>

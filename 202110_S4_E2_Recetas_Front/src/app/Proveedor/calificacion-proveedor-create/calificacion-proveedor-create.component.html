@@ -1,0 +1,48 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseCalificacion">
+    Calificar
+  </button>
+</p>
+<div id="collapseCalificacion" [ngbCollapse]="isCollapsed">
+  <h3>Crear Calificación</h3>
+  <form [formGroup]="calificacionForm"
+    (ngSubmit)="!calificacionForm.invalid && createCalificacion(calificacionForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="calificador"> Calificador </label>
+      <input id="calificador" class="form-control" formControlName="calificador" placeholder="Ingrese su nombre" />
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+    calificacionForm.get('calificador').hasError('required') &&
+    calificacionForm.get('calificador').touched
+      ">
+      Calificador requerido
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="puntos">
+        Puntaje
+      </label>
+      <input novalidate id="puntos" class="form-control" formControlName="puntos" placeholder="Ingrese el puntaje">
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="calificacionForm.get('puntos').hasError('required') && calificacionForm.get('puntos').touched">
+        Puntaje requerido
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="calificacionForm.get('puntos').hasError('min')">
+        No se permiten puntajes menores a 1
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="calificacionForm.get('puntos').hasError('max')">
+        No se permiten puntajes mayores a 5
+      </div>
+    </div>
+
+    <div class="row form-inline justify-content-center align-self-center p-2">
+      <button type="submit" class="btn btn-primary " [disabled]="!calificacionForm.valid">Create</button>
+      <div class="divider p-2"></div>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancel</button>
+    </div>
+  </form>
+</div>

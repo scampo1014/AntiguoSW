@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h1>Proveedores</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombre</th>
+          <th class="h4">Login</th>
+          <th class="h4">Correo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of Proveedores" (click)="onSelected(u)">
+          <td>
+            <dd>{{u.nombre}}</dd>
+          </td>
+          <td>
+            <dd>{{u.login}}</dd>
+          </td>
+          <td>
+            <dd>{{u.correo}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4">
+    <div *ngIf="selected">
+      <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h1>Metodos De Pago</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of MetodosDePago">
+          <td>
+            <dd>{{i.metodoPago}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <h1>Comentarios</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Id</th>
+          <th class="h4">Comentario</th>
+          <th class="h4">Aprobado</th>
+          <th class="h4">Positivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let c of comentarios" (click)="onSelected(c)">
+          <td>
+            <dd>{{c.id}}</dd>
+          </td>
+          <td>
+            <dd>{{c.comentario}}</dd>
+          </td>
+          <td>
+            <dd>{{c.aprobado}}</dd>
+          </td>
+          <td>
+            <dd>{{c.positivo}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row p-2">
+    <div class="col border">
+      <div *ngIf="selected">
+        <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
+      </div>
+    </div>
+  </div>
+</div>

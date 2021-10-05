@@ -1,0 +1,76 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseReceta">
+    Agregar receta
+  </button>
+</p>
+<div id="collapseReceta" [ngbCollapse]="isCollapsed">
+  <h3>Crear Receta</h3>
+  <form [formGroup]="recetaForm"
+    (ngSubmit)="createReceta(recetaForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre"> Nombre </label>
+      <input id="nombre" class="form-control" formControlName="nombre" placeholder="Ingrese el nombre de la receta" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+      recetaForm.get('nombre').hasError('required') &&
+      recetaForm.get('nombre').touched
+      ">
+      Campo obligatorio
+      </div>
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="cantIngredientes">
+        Cantidad de ingredientes
+      </label>
+      <input novalidate id="cantIngredientes" class="form-control" formControlName="cantIngredientes" placeholder="Ingrese la cantidad de ingredientes">
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="recetaForm.get('cantIngredientes').hasError('required') && recetaForm.get('cantIngredientes').touched">
+        Campo obligatorio
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="recetaForm.get('cantIngredientes').hasError('min')">
+        La receta debe tener mínimo un ingrediente
+      </div>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="descripcion"> Descripción </label>
+      <input id="descripcion" class="form-control" formControlName="descripcion" placeholder="Ingrese las instrucciones para realizar la receta" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+      recetaForm.get('descripcion').hasError('required') &&
+      recetaForm.get('descripcion').touched
+      ">
+      Campo obligatorio
+      </div>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="calorias">
+        Calorías
+      </label>
+      <input novalidate id="calorias" class="form-control" formControlName="calorias" placeholder="Ingrese la cantidad de calorias">
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="recetaForm.get('calorias').hasError('required') && recetaForm.get('calorias').touched">
+        Campo obligatorio
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show"
+        *ngIf="recetaForm.get('calorias').hasError('min')">
+        La receta debe tener mínimo una caloría
+      </div>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="dificultad"> Dificultad </label>
+      <input id="dificultad" class="form-control" formControlName="dificultad" placeholder="Ingrese la dificultad" />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+      recetaForm.get('dificultad').hasError('required') &&
+      recetaForm.get('dificultad').touched
+      ">
+      Campo obligatorio
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" >Create</button>
+    <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">Cancel</button>
+
+  </form>
+</div>
+

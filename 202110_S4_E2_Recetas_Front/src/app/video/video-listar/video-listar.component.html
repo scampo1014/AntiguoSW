@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <h1>Videos</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Id</th>
+          <th class="h4">Direccion</th>
+          <th class="h4">Formato</th>
+          <th class="h4">Tamanio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of videos">
+          <td>
+            <dd>{{v.id}}</dd>
+          </td>
+          <td>
+            <dd>{{v.direccion}}</dd>
+          </td>
+          <td>
+            <dd>{{v.formato}}</dd>
+          </td>
+          <td>
+            <dd>{{v.tamanio}}</dd>
+          </td>
+          <td>
+            <dd>{{v.duracion}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

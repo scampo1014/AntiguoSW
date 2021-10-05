@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h1>Ingredientes</h1>
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombre</th>
+          <th class="h4">Precio</th>
+          <th class="h4">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of ingredientes">
+          <td>
+            <dd>{{i.nombre}}</dd>
+          </td>
+          <td>
+            <dd>{{i.precio}}</dd>
+          </td>
+          <td>
+            <dd>{{i.cantidad}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

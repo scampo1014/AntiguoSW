@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Calificador</th>
+          <th class="h4">Puntos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of calificaciones">
+          <td>
+            <dd>{{i.calificador}}</dd>
+          </td>
+          <td>
+            <dd>{{i.puntos}}</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

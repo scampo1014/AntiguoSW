@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+  <div>
+    <div class="border margin">
+      <p class="h3 p-3">{{ usuarioDetail?.nombre }}</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="thumb">
+                <img width="500" class="img-fluid p-2" src="{{usuarioDetail?.foto}}" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <dl>
+            <hr />
+            <dt>Recetas</dt>
+            <div *ngFor="let r of usuarioDetail?.recetas">
+              <dd class="caption" routerLink="/recetas/{{ r.id }}" style = "cursor:pointer;">
+                {{ r.nombre }}
+              </dd>
+            </div>
+            <dd *ngIf="usuarioDetail?.recetas?.length == 0"> El cocinero no ha subido recetas </dd>
+            <hr />
+            <dt>Login</dt>
+            <dd>{{ usuarioDetail?.login }}</dd>
+            <hr />
+            <dt>Correo</dt>
+            <dd>{{ usuarioDetail?.correo }}</dd>
+            <hr />
+            <dt> Comentarios</dt>
+            <div *ngIf="usuarioDetail?.comentarios?.length > 0">
+              <app-usuario-comentarios [usuarioComentarios]="usuarioDetail?.comentarios"></app-usuario-comentarios>
+            </div>
+            <dd *ngIf="usuarioDetail?.comentarios?.length == 0"> El cocinero no ha sido comentado </dd>
+            <hr />
+            <dt>Calificación promedio</dt>
+            <dd *ngIf="usuarioDetail?.calificaciones?.length > 0">{{ getPromedioCalificaciones(usuarioDetail?.calificaciones) }} </dd>
+            <dd *ngIf="usuarioDetail?.calificaciones?.length == 0"> El cocinero no ha sido calificado </dd>
+            <hr />
+          </dl>
+          <br />
+        </div>
+      </div>
+
+      <div class="px-5 py-2"><app-calificacion-usuario-create [usuario]="usuarioDetail" >
+      </app-calificacion-usuario-create></div>
+      <div class="px-5 py-2">
+        <app-usuario-comentario-create [usuario]="usuarioDetail"></app-usuario-comentario-create>
+      </div>
+      <div class="px-5 py-2"><app-receta-usuario-create [usuario]="usuarioDetail" >
+      </app-receta-usuario-create></div>
+    </div>
+  </div>
+</div>

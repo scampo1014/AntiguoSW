@@ -1,0 +1,66 @@
+<h2 class="p-2">Registrarse como cocinero</h2>
+<form [formGroup]="usuarioForm" (ngSubmit)="createUsuario(usuarioForm.value)">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="nombre"> Nombre </label>
+    <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Ingrese su nombre" />
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+  usuarioForm.get('nombre').hasError('required') && usuarioForm.get('nombre').touched
+    ">
+    Nombre requerido
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="login"> Login </label>
+    <input class="form-control" id="login" formControlName="login" placeholder="Ingrese login" />
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+  usuarioForm.get('login').hasError('required') && usuarioForm.get('login').touched
+    ">
+    Login requerido
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="correo"> Correo </label>
+    <input id="correo" class="form-control" formControlName="correo" placeholder="Ingrese su correo" />
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+  usuarioForm.get('correo').hasError('required') && usuarioForm.get('correo').touched
+    ">
+    Correo requerido
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="usuarioForm.get('correo').hasError('email')">
+    El correo no tiene el formato adecuado
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="contrasenia"> Constrasenia </label>
+    <input id="contrasenia" class="form-control" formControlName="contrasenia" placeholder="Ingrese su contrasenia" />
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+  usuarioForm.get('contrasenia').hasError('required') && usuarioForm.get('contrasenia').touched
+    ">
+    Contrasenia requerida
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="foto"> Foto de perfil (Cambie la url por la de su foto. Si no lo hace, tendrá un avatar por defecto)</label>
+    <input id="foto" type="url" class="form-control" formControlName="foto" placeholder="Ingrese url de su foto" />
+  </div>
+   <!-- <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+   usuarioForm.get('foto').hasError('required') &&
+   usuarioForm.get('foto').touched
+    ">
+    Foto requerida
+  </div> -->
+
+  <div class="row form-inline justify-content-center align-self-center p-4">
+    <button type="submit" class="btn btn-primary" [disabled]="!usuarioForm.valid">
+      Create
+    </button>
+    <div class="divider p-2"></div>
+    <button type="button" class="btn btn-danger" (click)="cancelCreation()">
+      Cancel
+    </button>
+  </div>
+</form>
